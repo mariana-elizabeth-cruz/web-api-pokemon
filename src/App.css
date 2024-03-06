@@ -1,2 +1,9 @@
 /* Fuente para textos */
 @import url("https://fonts.googleapis.com/css2?family=Gruppo&family=Roboto+Flex:opsz,wght@8..144,200&display=swap");
+
+/* Loader */
+.containerLoader {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}

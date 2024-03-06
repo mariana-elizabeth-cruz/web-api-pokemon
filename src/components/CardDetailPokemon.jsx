@@ -6,10 +6,10 @@ import { capitalLetter } from '../helper/capitalLetter'
 
 
 export const CardDetailPokemon = () => {
-    const { getIdPokemon } = useContext(PokemonContex)
+    const { getIdPokemon, getSpeciesPokemon } = useContext(PokemonContex)
     const [loading, setLoading] = useState(true)
     const [pokemon, setPokemon] = useState({})
-    // const [specie, setSpecie] = useState([])
+    const [specie, setSpecie] = useState({})
     const { id } = useParams()
 
     const getDataPokemon = async id => {
@@ -18,22 +18,22 @@ export const CardDetailPokemon = () => {
         setLoading(false)
     }
 
-    // const getSpecie = async id => {
-    //     const respu = await getSpeciesPokemon(id)
-    //     setSpecie(respu)
-    // }
+    const getSpecie = async id => {
+        const respu = await getSpeciesPokemon(id)
+        setSpecie(respu)
+    }
 
     useEffect(() => {
         getDataPokemon(id)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    // useEffect(() => {
-    //   getSpecie(id)
-    // // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, [])
+    useEffect(() => {
+        getSpecie(id)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
-//FALTA TERMINAR DETALLES
+    //FALTA TERMINAR DETALLES
 
     return (
         <>
@@ -50,8 +50,10 @@ export const CardDetailPokemon = () => {
                                     alt={`Pokemon ${pokemon.name}`} />
                             </section>
                             <section>
-                                <h3>Descripcion </h3>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id explicabo repellat fuga deserunt, minima laudantium sunt tempora quam earum quis exercitationem, et obcaecati perferendis odio? Pariatur explicabo architecto sit consequatur!</p>
+                                <h3>Color </h3>
+                                <p> {specie.color.name} </p>
+                                {/* <p> {specie.flavor_text_entries[26].flavor_text} </p>
+                                <p> {specie.flavor_text_entries[34].flavor_text} </p> */}
                                 <h3>Altura: </h3>
                                 <p>
                                     {pokemon.height}
@@ -62,7 +64,7 @@ export const CardDetailPokemon = () => {
                                 </p>
                             </section>
                             <section>
-                                <h3>Ability</h3>
+                                <h3>Habilidad</h3>
                                 <div>
                                     {pokemon.abilities.map(a => (
                                         <p key={a.ability.name}>
@@ -108,7 +110,6 @@ export const CardDetailPokemon = () => {
                                     <h4>Velocidad</h4>
                                     <span>{pokemon.stats[5].base_stat}</span>
                                 </div>
-
                             </section>
                         </>
                     )

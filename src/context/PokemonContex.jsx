@@ -13,7 +13,7 @@ export const PokemonProvider = ({ children }) => {
 
 
     //Usar CustomHook
-    const { valueSearch, onInputForm, onResetForm } = useForm( {
+    const { valueSearch, onInputForm, onResetForm } = useForm({
         valueSearch: '',
     })
 
@@ -47,19 +47,19 @@ export const PokemonProvider = ({ children }) => {
     }
 
     //Obtener especie
-    // const getSpeciesPokemon = async (id) => {
-    //     const res = await fetch(`${URL_POKEMON}pokemon-species/${id}`)
-    //     const data = await res.json()
-    //     return data;
-    // }
+    const getSpeciesPokemon = async (id) => {
+        const res = await fetch(`${URL_POKEMON}pokemon-species/${id}`)
+        const data = await res.json()
+        return data;
+    }
 
     useEffect(() => {
         getPokemones();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [offset])
 
-    
-    
+
+
 
     return (
         <PokemonContex.Provider value={{
@@ -68,6 +68,7 @@ export const PokemonProvider = ({ children }) => {
             onResetForm,
             pokemon,
             getIdPokemon,
+            getSpeciesPokemon,
             loadPokemon
 
         }} >

@@ -5,7 +5,7 @@ import { CardPokemon } from "./CardPokemon";
 
 
 const ListPokemon = () => {
-  const { pokemon } = useContext(PokemonContex)
+  const { pokemon, loadPokemon } = useContext(PokemonContex)
 
   return (
     <main>
@@ -17,8 +17,10 @@ const ListPokemon = () => {
           ))
         }
       </div>
-      {/* falta cargar
-      <button onClick={() => loadPokemon()}> Mas </button> */}
+      <div>
+        <button onClick={() => loadPokemon()}> Mas </button>
+      </div>
+
     </main>
   );
 };
