@@ -111,6 +111,7 @@ export const CardDetailPokemon = () => {
                                     <span>{pokemon.stats[5].base_stat}</span>
                                 </div>
                             </section>
+                            {/* FALTA EVOLUCION */}
                         </>
                     )
                 }

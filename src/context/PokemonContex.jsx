@@ -10,6 +10,7 @@ export const PokemonContex = createContext()
 export const PokemonProvider = ({ children }) => {
     const [pokemon, setPokemon] = useState([])
     const [offset, setOffset] = useState(0)
+    const [ordenar, setOrdenar] = useState([])
 
 
     //Usar CustomHook
@@ -18,7 +19,7 @@ export const PokemonProvider = ({ children }) => {
     })
 
     //Metodo para consumir los datos de la API
-    const getPokemones = async (limit = 40) => {
+    const getPokemones = async (limit = 10) => {
         const res = await fetch(`${URL_POKEMON}pokemon?limit=${limit}&offset=${offset}`)
         const data = await res.json()
         const dataPokemon = data.results.map(async (poke) => {
@@ -43,7 +44,7 @@ export const PokemonProvider = ({ children }) => {
 
     // Cargar mas pokemones
     const loadPokemon = () => {
-        setOffset(offset + 40);
+        setOffset(offset + 10);
     }
 
     //Obtener especie
@@ -53,12 +54,31 @@ export const PokemonProvider = ({ children }) => {
         return data;
     }
 
+    //Ordenar pokemones
+    const ordenarPokemons = async (limit = 10) => {
+        const res = await fetch(`${URL_POKEMON}pokemon?limit=${limit}&offset=${offset}`)
+        const data = await res.json()
+        const pokemonUrls = data.results.map(pokemon => pokemon.url);
+        const pokemonDataResponses = await Promise.all(pokemonUrls.map(url => fetch(url)));
+        const pokemonDataJson = await Promise.all(pokemonDataResponses.map(response => response.json()));
+
+        // const sortedPokemon = pokemonDataJson.sort((a, b) => a.name.localeCompare(b.name));
+        const sortedPokemon = pokemonDataJson.sort((a, b) => b.id - a.id);
+        // const sortedPokemon = pokemonDataJson.sort((a, b) => b.height - a.height);
+        setOrdenar(sortedPokemon);
+        console.log(sortedPokemon);
+    }
+
+
     useEffect(() => {
         getPokemones();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [offset])
 
-
+    useEffect(() => {
+        ordenarPokemons()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
 
     return (
@@ -69,7 +89,8 @@ export const PokemonProvider = ({ children }) => {
             pokemon,
             getIdPokemon,
             getSpeciesPokemon,
-            loadPokemon
+            loadPokemon,
+            ordenar
 
         }} >
             {children}
