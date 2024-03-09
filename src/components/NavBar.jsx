@@ -1,25 +1,53 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import "bootstrap/dist/css/bootstrap.min.css"
 
 const NavBar = () => {
     return (
         <>
-            <header>
-                <nav>
-                    <ul>
-                        <li>
-                            <NavLink to={"/"}> Home </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to={"/lista"}> Lista </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to={"/ordenar"}> Ordenar </NavLink>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
+
+            <nav>
+                <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
+                    <Container>
+                        <Navbar.Brand as={Link} to={"/"} >Logo</Navbar.Brand>
+                        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                        <Navbar.Collapse id="responsive-navbar-nav">
+                            <Nav className="me-auto">
+                                <Nav.Link as={Link} to={"/"} >Home</Nav.Link>
+                                <Nav.Link as={Link} to={"/lista"} >Lista</Nav.Link>
+                                <NavDropdown title="Ordenar" id="collapsible-nav-dropdown">
+                                    <NavDropdown.Item as={Link} to={"/ordenarId"} >
+                                        Numero
+                                    </NavDropdown.Item>
+                                    <NavDropdown.Item as={Link} to={"/ordenarName"} >
+                                        Nombre
+                                    </NavDropdown.Item>
+                                    <NavDropdown.Item as={Link} to={"/ordenarTam"} >
+                                        Tamaño
+                                    </NavDropdown.Item>
+                                    <NavDropdown.Item as={Link} to={"/ordenarPeso"} >
+                                        Peso
+                                    </NavDropdown.Item>
+                                </NavDropdown>
+                            </Nav>
+                            <Nav>
+                                <Nav.Link href="#deets">Otros</Nav.Link>
+                                <Nav.Link eventKey={2} href="#memes">
+                                Otros detalles
+                                </Nav.Link>
+                            </Nav>
+                        </Navbar.Collapse>
+                    </Container>
+                </Navbar>
+
+            </nav>
+
         </>
     );
 };
 
 export default NavBar;
+

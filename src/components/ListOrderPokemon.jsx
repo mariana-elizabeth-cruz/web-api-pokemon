@@ -1,7 +1,5 @@
 /* eslint-disable react/prop-types */
 
-
-
 export const ListOrderPokemon = ({ pokemon }) => {
   return (
     <>

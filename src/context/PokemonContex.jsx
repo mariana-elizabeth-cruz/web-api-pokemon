@@ -10,7 +10,10 @@ export const PokemonContex = createContext()
 export const PokemonProvider = ({ children }) => {
     const [pokemon, setPokemon] = useState([])
     const [offset, setOffset] = useState(0)
-    const [ordenar, setOrdenar] = useState([])
+    const [orderId, setOrderId] = useState([])
+    const [orderName, setOrderName] = useState([])
+    const [orderHeight, setOrderHeight] = useState([])
+    const [orderWeight, setOrderWeight] = useState([])
 
 
     //Usar CustomHook
@@ -54,7 +57,7 @@ export const PokemonProvider = ({ children }) => {
         return data;
     }
 
-    //Ordenar pokemones
+    //Ordenar pokemones por ID
     const ordenarPokemons = async (limit = 10) => {
         const res = await fetch(`${URL_POKEMON}pokemon?limit=${limit}&offset=${offset}`)
         const data = await res.json()
@@ -62,13 +65,53 @@ export const PokemonProvider = ({ children }) => {
         const pokemonDataResponses = await Promise.all(pokemonUrls.map(url => fetch(url)));
         const pokemonDataJson = await Promise.all(pokemonDataResponses.map(response => response.json()));
 
-        // const sortedPokemon = pokemonDataJson.sort((a, b) => a.name.localeCompare(b.name));
+        //guardar datos de ID descendente
         const sortedPokemon = pokemonDataJson.sort((a, b) => b.id - a.id);
-        // const sortedPokemon = pokemonDataJson.sort((a, b) => b.height - a.height);
-        setOrdenar(sortedPokemon);
+        setOrderId(sortedPokemon);
         console.log(sortedPokemon);
     }
 
+    //Ordenar pokemones por nombre
+    const ordenarNombres = async (limit = 10) => {
+        const res = await fetch(`${URL_POKEMON}pokemon?limit=${limit}&offset=${offset}`)
+        const data = await res.json()
+        const pokemonUrls = data.results.map(pokemon => pokemon.url);
+        const pokemonDataResponses = await Promise.all(pokemonUrls.map(url => fetch(url)));
+        const pokemonDataJson = await Promise.all(pokemonDataResponses.map(response => response.json()));
+
+        //guardar datos de name ascendente
+        const sortedPokemonName = pokemonDataJson.sort((a, b) => a.name.localeCompare(b.name));
+        console.log(sortedPokemonName);
+        setOrderName(sortedPokemonName)
+    }
+
+    //Ordenar pokemones por tamaño
+    const ordenarHeight = async (limit = 10) => {
+        const res = await fetch(`${URL_POKEMON}pokemon?limit=${limit}&offset=${offset}`)
+        const data = await res.json()
+        const pokemonUrls = data.results.map(pokemon => pokemon.url);
+        const pokemonDataResponses = await Promise.all(pokemonUrls.map(url => fetch(url)));
+        const pokemonDataJson = await Promise.all(pokemonDataResponses.map(response => response.json()));
+
+        //guardar datos ascendente
+        const sortedPokemon = pokemonDataJson.sort((a, b) => a.height - b.height);
+        setOrderHeight(sortedPokemon);
+        console.log(sortedPokemon);
+    }
+
+    //Ordenar pokemones por Peso
+    const ordenarWeight = async (limit = 10) => {
+        const res = await fetch(`${URL_POKEMON}pokemon?limit=${limit}&offset=${offset}`)
+        const data = await res.json()
+        const pokemonUrls = data.results.map(pokemon => pokemon.url);
+        const pokemonDataResponses = await Promise.all(pokemonUrls.map(url => fetch(url)));
+        const pokemonDataJson = await Promise.all(pokemonDataResponses.map(response => response.json()));
+
+        //guardar datos ascendente
+        const sortedPokemon = pokemonDataJson.sort((a, b) => a.weight - b.weight);
+        setOrderWeight(sortedPokemon);
+        console.log(sortedPokemon);
+    }
 
     useEffect(() => {
         getPokemones();
@@ -77,6 +120,21 @@ export const PokemonProvider = ({ children }) => {
 
     useEffect(() => {
         ordenarPokemons()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
+    useEffect(() => {
+        ordenarNombres()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
+    useEffect(() => {
+        ordenarHeight()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
+    useEffect(() => {
+        ordenarWeight()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
@@ -90,7 +148,10 @@ export const PokemonProvider = ({ children }) => {
             getIdPokemon,
             getSpeciesPokemon,
             loadPokemon,
-            ordenar
+            orderId,
+            orderName,
+            orderHeight,
+            orderWeight
 
         }} >
             {children}
