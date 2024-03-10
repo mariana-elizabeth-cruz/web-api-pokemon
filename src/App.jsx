@@ -12,9 +12,6 @@ import OrderWeight from "./components/Ordenar/OrderWeight";
 import "./App.css";
 
 
-
-
-
 function App() {
   return (
     <>

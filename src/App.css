@@ -7,3 +7,29 @@
     justify-content: center;
     margin: 20px 0;
 }
+
+/* NavBar */
+
+/* Home */
+
+/* Lista de pokemons */
+.listPokemonStyle {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+/* CardPokemon */
+.cardPokemonStyle {
+    width: 18rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardPokemonImg {
+    width: 15rem;
+}

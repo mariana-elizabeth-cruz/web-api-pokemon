@@ -15,6 +15,8 @@ export const PokemonProvider = ({ children }) => {
     const [orderHeight, setOrderHeight] = useState([])
     const [orderWeight, setOrderWeight] = useState([])
 
+    //Estados para aplicacion
+    const [loading, setLoading] = useState(true)
 
     //Usar CustomHook
     const { valueSearch, onInputForm, onResetForm } = useForm({
@@ -36,6 +38,7 @@ export const PokemonProvider = ({ children }) => {
         console.log(resultPokemon);
         //almacenamos los datos en un solo arreglo 
         setPokemon([...pokemon, ...resultPokemon])
+        setLoading(false)
     }
 
     //Obtener ID
@@ -151,7 +154,9 @@ export const PokemonProvider = ({ children }) => {
             orderId,
             orderName,
             orderHeight,
-            orderWeight
+            orderWeight,
+            loading,
+            setLoading
 
         }} >
             {children}
