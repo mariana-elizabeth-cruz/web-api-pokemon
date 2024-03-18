@@ -1,6 +1,19 @@
 /* Fuente para textos */
 @import url("https://fonts.googleapis.com/css2?family=Gruppo&family=Roboto+Flex:opsz,wght@8..144,200&display=swap");
 
+/* paleta de colores 
+DCCE57
+DBE0CF
+D13E2D
+233941
+E5A31E */
+/* 
+305F67
+DBE0C8
+C3A260
+D23E2E
+F4A30A */
+
 /* Body */
 body {
   background: #d9d7b5;
@@ -16,13 +29,62 @@ body {
 /* NavBar */
 
 /* Home */
+.homeMain {
+  margin: 15px;
+}
+
+.homeSection {
+  margin: 15px;
+  padding: 15px;
+}
+
+.homeSectionCard {
+  padding: 10px;
+  border-radius: 50px;
+  background: linear-gradient(145deg, #c3c2a3, #e8e6c2);
+  box-shadow: 20px 20px 60px #aeac91, -20px -20px 60px #ffffd9;
+}
+
+.homeSectionCard img {
+  width: 550px;
+  float: left;
+  margin: 10px;
+  padding: 15px;
+  border-radius: 50px;
+}
+
+.homeSectionHistory {
+  margin: 25px;
+  padding: 15px;
+  font-size: 20px;
+}
+.homeSectionHistory h2 {
+  text-align: center;
+}
+
+.homeSectionCreate {
+  padding: 10px;
+  background-color: #d13e2d;
+  
+}
+
+.homeSectionText {
+  color: #f7f5d2;
+  font-size: 30px;
+}
+
+.homeSectionLink {
+  color: #f7f5d2;
+  text-decoration: none;
+}
+
 
 /* Lista de pokemons */
 .listPokemonStyle {
   display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
   /* display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, ifr)); */
 }
