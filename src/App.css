@@ -1,11 +1,16 @@
 /* Fuente para textos */
 @import url("https://fonts.googleapis.com/css2?family=Gruppo&family=Roboto+Flex:opsz,wght@8..144,200&display=swap");
 
+/* Body */
+body {
+  background: #d9d7b5;
+}
+
 /* Loader */
 .containerLoader {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
 }
 
 /* NavBar */
@@ -14,22 +19,30 @@
 
 /* Lista de pokemons */
 .listPokemonStyle {
-    display: flex;
+  display: flex;
     flex-wrap: wrap;
     gap: 2rem;
     justify-content: center;
+  /* display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, ifr)); */
 }
 
 /* CardPokemon */
 .cardPokemonStyle {
-    width: 18rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    justify-content: center;
-    align-items: center;
+  width: 18rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
 }
 
 .cardPokemonImg {
-    width: 15rem;
+  width: 15rem;
+}
+
+/* CardDetailPokemon */
+.cardDetailPokemon {
+  width: 18rem;
+  display: flex;
 }

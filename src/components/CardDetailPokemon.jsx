@@ -44,45 +44,45 @@ export const CardDetailPokemon = () => {
                         <Loader />
                     ) : (
                         <>
-                            
-                           {/*  FALTA EVOLUCION */}
-                            <Card style={{ width: '18rem' }}>
-                                <Card.Body>
-                                    <Card.Title> N° 000{pokemon.id} </Card.Title>
-                                </Card.Body>
-                                <Card.Img variant="top" src={pokemon.sprites.other.dream_world.front_default}
-                                    alt={`Pokemon ${pokemon.name}`} />
-                                <Card.Body>
-                                    <Card.Title> {capitalLetter(pokemon.name)} </Card.Title>
-                                    <Card.Text>
-                                        Color: {specie.color.name}
-                                    </Card.Text>
+                            {/*  FALTA EVOLUCION */}
+                            <Card className='cardDetailPokemon'>
+                                <div>
+                                    <Card.Img variant="top" src={pokemon.sprites.other.dream_world.front_default}
+                                        alt={`Pokemon ${pokemon.name}`} />
+                                </div>
+                                <div>
+                                    <Card.Body>
+                                        <Card.Title> {capitalLetter(pokemon.name)}  N° 000{pokemon.id} </Card.Title>
+                                        <Card.Text>
+                                            Color: {specie.color.name}
+                                        </Card.Text>
+                                    </Card.Body>
+                                    <ListGroup className="list-group-flush">
+                                        <ListGroup.Item>Altura: {pokemon.height}</ListGroup.Item>
+                                        <ListGroup.Item>Peso: {pokemon.weight}</ListGroup.Item>
+                                        <ListGroup.Item>
+                                            Habilidad:
+                                            {pokemon.abilities.map(a => (
+                                                <p key={a.ability.name}>
+                                                    {a.ability.name}
+                                                </p>
+                                            ))}
+                                        </ListGroup.Item>
+                                        <ListGroup.Item>
+                                            Tipo:
+                                            {pokemon.types.map(tip => (
+                                                <p key={tip.type.name}>
+                                                    {tip.type.name}
+                                                </p>
+                                            ))}
+                                        </ListGroup.Item>
+                                    </ListGroup>
+                                </div>
 
-                                </Card.Body>
-                                <ListGroup className="list-group-flush">
-                                    <ListGroup.Item>Altura: {pokemon.height}</ListGroup.Item>
-                                    <ListGroup.Item>Peso: {pokemon.weight}</ListGroup.Item>
-                                    <ListGroup.Item>
-                                        Habilidad:
-                                        {pokemon.abilities.map(a => (
-                                            <p key={a.ability.name}>
-                                                {a.ability.name}
-                                            </p>
-                                        ))}
-                                    </ListGroup.Item>
-                                    <ListGroup.Item>
-                                        Tipo:
-                                        {pokemon.types.map(tip => (
-                                            <p key={tip.type.name}>
-                                                {tip.type.name}
-                                            </p>
-                                        ))}
-                                    </ListGroup.Item>
-                                </ListGroup>
-                                <Card.Body>
+                                {/* <Card.Body>
                                     <Card.Link href="#">Card Link</Card.Link>
                                     <Card.Link href="#">Another Link</Card.Link>
-                                </Card.Body>
+                                </Card.Body> */}
                             </Card>
                         </>
                     )
