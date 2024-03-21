@@ -47,7 +47,7 @@ const Home = () => {
 
         {/* Cuerpo del inicio */}
         <main className='homeMain'>
-          <article>
+          <article className='homeArticle'>
             <section className='homeSection'>
               <div className='homeSectionCard'>
                 <img src="/img/friends.png" alt="Imagen de pokemones" />
@@ -63,11 +63,13 @@ const Home = () => {
 
             <section className='homeSection'>
               <Card className='homeSectionCreate'>
-                <Card.Body>
-                  <Card.Subtitle className='homeSectionText' >Creado por</Card.Subtitle>
-                  <Card.Text>
-                    Some quick example text to build on the card title and make up the
-                    bulk of the cards content.
+                <Card.Body >
+                  <Card.Subtitle className='homeSectionSub' >Creadores</Card.Subtitle>
+                  <Card.Text className='homeCardText' >
+                    Cuando el creador, Satoshi Tajiri, era joven, uno de sus pasatiempos favoritos era la recolección y colección de insectos. Tajiri se dirigió a la ciudad de Tokio a estudiar, ya que su padre quería que fuese ingeniero. Sin embargo, a Tajiri no le agradaba la idea de estudiar y se dedicaba más a pasatiempos como los videojuegos. Pasó un tiempo y Tajiri llegó a trabajar como jugador de prueba de algunos juegos para revistas, junto a Ken Sugimori, con quien hizo una gran amistad. En 1989 crearon una revista llamada Game Freak.
+                  </Card.Text>
+                  <Card.Text className='homeCardText'>
+                    El proyecto fue enviado a Nintendo. Mientras que Tajiri era quien tenía la idea principal, Sugimori era el encargado de los diseños de los monstruos. Así mismo, recibieron consejos por parte de Shigeru Miyamoto (creador de Mario Bros.) para mejorar el juego, que en ese entonces recibía el nombre de Capsule Monster.
                   </Card.Text>
                   <Card.Link className='homeSectionLink' href="https://es.wikipedia.org/wiki/Satoshi_Tajiri" >Satoshi Tajiri</Card.Link>
                   <Card.Link className='homeSectionLink' href="https://es.wikipedia.org/wiki/Ken_Sugimori">Ken Sugimori</Card.Link>

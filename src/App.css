@@ -14,23 +14,39 @@ C3A260
 D23E2E
 F4A30A */
 
-/* Body */
+/*
+colores seleccionados 
+DBE0CF
+DCCB57
+ECAB17
+D63E2F
+2F5259 */
+
+/* BODY */
 body {
   background: #d9d7b5;
 }
 
-/* Loader */
+/* LOADER */
 .containerLoader {
   display: flex;
   justify-content: center;
   margin: 20px 0;
 }
 
-/* NavBar */
+/* NAVBAR */
 
-/* Home */
+/* HOME */
+/* Card Historia */
 .homeMain {
-  margin: 15px;
+  margin: 20px;
+}
+
+.homeArticle {
+  display: grid;
+  grid-template-columns: 4fr 2fr;
+  grid-template-rows: auto;
+  gap: 2px;
 }
 
 .homeSection {
@@ -62,15 +78,26 @@ body {
   text-align: center;
 }
 
+/* Card Creadores */
 .homeSectionCreate {
-  padding: 10px;
-  background-color: #d13e2d;
-  
+  padding: 12px;
+  border-radius: 40px;
+  background: linear-gradient(145deg, #d63e2f, #e54232);
+  box-shadow: 26px 26px 50px #c63d31, inset -15px -15px 55px #ff4d3a;
 }
 
-.homeSectionText {
+.homeSectionSub {
+  margin: 10px;
+  padding: 10px;
   color: #f7f5d2;
   font-size: 30px;
+  text-align: center;
+}
+
+.homeCardText {
+  padding: 10px;
+  color: #f7f5d2;
+  font-size: 20px;
 }
 
 .homeSectionLink {
@@ -78,8 +105,7 @@ body {
   text-decoration: none;
 }
 
-
-/* Lista de pokemons */
+/* LIST POKEMONS */
 .listPokemonStyle {
   display: flex;
   flex-wrap: wrap;
@@ -89,7 +115,7 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(180px, ifr)); */
 }
 
-/* CardPokemon */
+/* CARD POKEMON */
 .cardPokemonStyle {
   width: 18rem;
   display: flex;
@@ -103,7 +129,7 @@ body {
   width: 15rem;
 }
 
-/* CardDetailPokemon */
+/* CARD DETAIL POKEMONS */
 .cardDetailPokemon {
   width: 18rem;
   display: flex;
