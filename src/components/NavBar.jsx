@@ -8,14 +8,15 @@ import "bootstrap/dist/css/bootstrap.min.css"
 const NavBar = () => {
     return (
         <>
-
             <nav>
-                <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
-                    <Container>
-                        <Navbar.Brand as={Link} to={"/"} >Logo</Navbar.Brand>
+                <Navbar collapseOnSelect expand="lg" className="navColor">
+                    <Container >
+                        <Navbar.Brand as={Link} to={"/"} >
+                            <img src="/img/logo.png" alt="Logo de app" />
+                        </Navbar.Brand>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                        <Navbar.Collapse id="responsive-navbar-nav">
-                            <Nav className="me-auto">
+                        <Navbar.Collapse id="responsive-navbar-nav ">
+                            <Nav className="me-auto navMenu">
                                 <Nav.Link as={Link} to={"/"} >Home</Nav.Link>
                                 <Nav.Link as={Link} to={"/lista"} >Lista</Nav.Link>
                                 <NavDropdown title="Ordenar" id="collapsible-nav-dropdown">
@@ -36,15 +37,13 @@ const NavBar = () => {
                             <Nav>
                                 <Nav.Link href="#deets">Otros</Nav.Link>
                                 <Nav.Link eventKey={2} href="#memes">
-                                Otros detalles
+                                    Otros detalles
                                 </Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Container>
                 </Navbar>
-
             </nav>
-
         </>
     );
 };
