@@ -35,20 +35,41 @@ body {
 }
 
 /* NAVBAR */
-nav {
-  height: 150px;
-}
+/* nav {
+  height: 180px;
+} */
 
 .navColor {
   background-color: #2F5259;
 }
 
-nav img {
-  width: 200px;
+/* .navCollapse {
+  height: 150px;
+} */
+
+.navImg {
+  width: 250px;
 }
 
 .navMenu {
-  font-size: 25px;
+  font-size: 30px;
+  padding-left: 40px;
+  
+}
+
+.navMenuLink {
+  font-family: "Gruppo", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.navMenuOrder {
+  font-size: 22px;
+  font-family: "Gruppo", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 /* HOME */
