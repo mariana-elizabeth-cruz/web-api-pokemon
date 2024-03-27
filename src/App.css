@@ -40,7 +40,7 @@ body {
 } */
 
 .navColor {
-  background-color: #2F5259;
+  background-color: #2f5259;
 }
 
 /* .navCollapse {
@@ -54,7 +54,6 @@ body {
 .navMenu {
   font-size: 30px;
   padding-left: 40px;
-  
 }
 
 .navMenuLink {
@@ -72,12 +71,29 @@ body {
   text-transform: uppercase;
 }
 
+.navbar-nav .dropdown-menu {
+  position: static;
+  background-color: #dbe0cf;
+}
+
+.navMenuOrderLink {
+  margin: 5px;
+  width: 150px;
+}
+.navMenuOrderLink:hover {
+  /* background-color: #546e73; */
+  color: #dbe0cf;
+  font-weight: bold;
+  border-radius: 5%;
+  background: #546e73;
+  box-shadow: 2px 8px 10px #3f5356;
+}
+
 /* HOME */
 /* Card Historia */
 .homeMain {
   margin: 20px;
 }
-
 
 .homeSection {
   margin: 15px;
@@ -154,7 +170,6 @@ body {
   text-align: center;
 }
 
-
 /* LIST POKEMONS */
 .listPokemonStyle {
   display: flex;
@@ -184,7 +199,6 @@ body {
   width: 18rem;
   display: flex;
 }
-
 
 /* FOOTER */
 

@@ -18,27 +18,23 @@ const NavBar = () => {
                         <Nav className="me-auto navMenu">
                             <Nav.Link className="navMenuLink" as={Link} to={"/"} >Home</Nav.Link>
                             <Nav.Link className="navMenuLink" as={Link} to={"/lista"} >Lista</Nav.Link>
-                            
+
                         </Nav>
                         <Nav>
                             <NavDropdown title="Ordenar" id="collapsible-nav-dropdown" className="navMenuOrder" >
-                                <NavDropdown.Item  as={Link} to={"/ordenarId"} >
+                                <NavDropdown.Item className="navMenuOrderLink" as={Link} to={"/ordenarId"} >
                                     Numero
                                 </NavDropdown.Item>
-                                <NavDropdown.Item as={Link} to={"/ordenarName"} >
+                                {/* <NavDropdown.Item as={Link} to={"/ordenarName"} >
                                     Nombre
-                                </NavDropdown.Item>
-                                <NavDropdown.Item as={Link} to={"/ordenarTam"} >
+                                </NavDropdown.Item> */}
+                                <NavDropdown.Item className="navMenuOrderLink" as={Link} to={"/ordenarTam"} >
                                     Tamaño
                                 </NavDropdown.Item>
-                                <NavDropdown.Item as={Link} to={"/ordenarPeso"} >
+                                <NavDropdown.Item className="navMenuOrderLink" as={Link} to={"/ordenarPeso"} >
                                     Peso
                                 </NavDropdown.Item>
                             </NavDropdown>
-                            {/* <Nav.Link href="#deets">Otros</Nav.Link>
-                            <Nav.Link eventKey={2} href="#memes">
-                                Otros detalles
-                            </Nav.Link> */}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
